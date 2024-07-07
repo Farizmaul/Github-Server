@@ -15,8 +15,8 @@ export ARCH=arm64
 export SUBARCH=arm64
 export KBUILD_BUILD_HOST="Github-server"
 export KBUILD_BUILD_USER="RicoAyuba"
-export KBUILD_COMPILER_STRING=gcc
-#export LLD=$("$GCC64"aarch64-elf-ld.lld --version | head -n 1)
+export KBUILD_COMPILER_STRING=$("$GCC64"aarch64-elf-gcc --version | head -n 1)
+export LLD=$("$GCC64"aarch64-elf-ld.lld --version | head -n 1)
 export PATH=$GCC64:$GCC32:/usr/bin:$PATH
 export IMGPATH="$ANYKERNEL3_DIR/Image"
 export DTBPATH="$ANYKERNEL3_DIR/dtb"
@@ -48,8 +48,8 @@ AR=aarch64-elf-ar \
 OBJDUMP=aarch64-elf-objdump \
 STRIP=aarch64-elf-strip \
 NM=aarch64-elf-nm \
-OBJCOPY=aarch64-elf-objcopy"
-#LD=aarch64-elf-ld.lld"
+OBJCOPY=aarch64-elf-objcopy \
+LD=aarch64-elf-ld.lld"
 
 mkdir out
 make -j$(nproc --all) O=out $args $KERNEL_DEFCONFIG
