@@ -35,8 +35,8 @@ jobs:
           if [ "${TOOLCHAIN}" = "gcc" ]; then
             wget https://github.com/mvaisakh/gcc-build/releases/download/07072024/eva-gcc-arm-07072024.xz
             wget https://github.com/mvaisakh/gcc-build/releases/download/07072024/eva-gcc-arm64-07072024.xz
-            tar -xf eva-gcc-arm64-04072024.xz
-            tar -xf eva-gcc-arm-04072024.xz
+            tar -xf eva-gcc-arm64-07072024.xz
+            tar -xf eva-gcc-arm-07072024.xz
           fi
 
           if [ "${TOOLCHAIN}" = "clang" ]; then
