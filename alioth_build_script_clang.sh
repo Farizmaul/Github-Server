@@ -10,7 +10,7 @@ COMMIT=$(git rev-parse --short HEAD)
 BRANCH=$(git rev-parse --abbrev-ref HEAD)
 BUILD_DTBO=0
 KERNEL_DEFCONFIG=vendor/alioth_user_defconfig
-FINAL_KERNEL_ZIP=NightQueen-Alioth-$TANGGAL.zip
+FINAL_KERNEL_ZIP=NightQueen-MIUI-Alioth-$TANGGAL.zip
 
 export ARCH=arm64
 export SUBARCH=arm64
@@ -59,10 +59,10 @@ CROSS_COMPILE="$GCC64"aarch64-linux-android- \
 CROSS_COMPILE_ARM32="$GCC32"arm-linux-androideabi-"
 
 mkdir out
-make O=out $args $KERNEL_DEFCONFIG
+make O=out $args vendor/kona-perf_defconfig vendor/xiaomi/xiaomi-kona-common.config vendor/xiaomi/alioth.config
 scripts/config --file out/.config \
-        -e POLLY_CLANG
-
+        -d LOCAL_VERSION
+	-e LOCALVERSION=-NightQueen-MIUI
 cd out || exit
 make -j$(nproc --all) $args olddefconfig
 cd ../ || exit
