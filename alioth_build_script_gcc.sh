@@ -36,10 +36,10 @@ BUILD_START=$(date +"%s")
 
 # Post to CI channel
 curl -s -X POST https://api.telegram.org/bot${token}/sendMessage -d text="start building the kernel from the HEAD commit $COMMIT
-OS		: <code>$DISTRO</code>
-Branch		: <code>$(git rev-parse --abbrev-ref HEAD)</code>
-Compiler Used	: <code>$KBUILD_COMPILER_STRING</code>
-LD Version Used :<code>$LLD</code>" -d chat_id=${chat_id} -d parse_mode=HTML
+OS______________: <code>$DISTRO</code>
+Branch__________: <code>$(git rev-parse --abbrev-ref HEAD)</code>
+Compiler Used___: <code>$KBUILD_COMPILER_STRING</code>
+LD Version Used_: <code>$LLD</code>" -d chat_id=${chat_id} -d parse_mode=HTML
 
 args="ARCH=arm64 \
 CROSS_COMPILE_ARM32=arm-eabi- \
