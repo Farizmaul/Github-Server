@@ -10,7 +10,7 @@ COMMIT=$(git rev-parse --short HEAD)
 BRANCH=$(git rev-parse --abbrev-ref HEAD)
 BUILD_DTBO=0
 KERNEL_DEFCONFIG=vendor/alioth_user_defconfig
-FINAL_KERNEL_ZIP=NightQueen-Alioth-$TANGGAL.zip
+FINAL_KERNEL_ZIP=NightQueen-Alioth-Test-$TANGGAL.zip
 
 export ARCH=arm64
 export SUBARCH=arm64
