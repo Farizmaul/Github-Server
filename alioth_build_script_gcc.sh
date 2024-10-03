@@ -34,16 +34,19 @@ Branch : $(git rev-parse --abbrev-ref HEAD)
 Version : "$KERVER"-NightQueen-$COMMIT
 Compiler Used : $GCC_VER $LLD_VER" -d chat_id=${chat_id} -d parse_mode=HTML
 
-args="ARCH=arm64 \
-CROSS_COMPILE_ARM32=arm-eabi- \
-CROSS_COMPILE=aarch64-elf- \
-CC=aarch64-elf-gcc \
-LD=aarch64-elf-ld.lld \
-OBJCOPY=llvm-objcopy \
-OBJDUMP=llvm-objdump \
-AR=llvm-ar \
-NM=llvm-nm \
-STRIP=llvm-strip"
+args="	ARCH=arm64 \
+	AR=llvm-ar \
+	NM=llvm-nm \
+ 	CC=aarch64-elf-gcc \
+  	LD=aarch64-elf-ld.lld \
+	CC_COMPAT=arm-eabi-gcc \
+	OBJCOPY=llvm-objcopy \
+	OBJDUMP=llvm-objdump \
+	OBJCOPY=llvm-objcopy \
+	OBJSIZE=llvm-size \
+	STRIP=llvm-strip \
+	CROSS_COMPILE=aarch64-elf- \
+	CROSS_COMPILE_COMPAT=arm-eabi-"
 
 mkdir out
 make -j$(nproc --all) O=out $args $KERNEL_DEFCONFIG
